@@ -24,7 +24,7 @@ services:
                 memory: 250M
 
   mindsdb:
-    image: mindsdb/mindsdb
+    image: "${MINDSDB_IMAGE}"
     volumes:
         - type: bind
           source: ../
