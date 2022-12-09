@@ -40,3 +40,5 @@ services:
               limits:
                 memory: 500M
 
+volumes:
+  postgres_data:
