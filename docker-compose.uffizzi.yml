@@ -23,24 +23,41 @@ services:
               limits:
                 memory: 500M
 
+
   mindsdb:
     image: mindsdb/mindsdb:latest
-    # volumes:
-    #   - minds_volume:/root
+    container_name: mindsdb
+    restart: "always"
+    ports:
+      - "47334:47334"
+      - "47335:47335"
     volumes:
-        - type: bind
-          source: ../
-          target: /mindsdb
+      - ../:/root
+    deploy:
+            resources:
+              limits:
+                memory: 2000M
+
+networks:
+  default:
+    name: mindsdb-network
+    driver: bridge
+
+  # mindsdb:
+  #   image: mindsdb/mindsdb:latest
+  #   # volumes:
+  #   #   - minds_volume:/root
+  #   volumes:
+  #       - type: bind
+  #         source: ../
+  #         target: /mindsdb
     # environment:
     #     MINDSDB_STORAGE_DIR: "/mindsdb/var"
     #     MINDSDB_DOCKER_ENV: "True"
     #     FLASK_DEBUG: "1"
     #     FLASK_ENV: "development"
     #     FLASK_APP: "./mindsdb/__main__.py"
-    deploy:
-            resources:
-              limits:
-                memory: 2000M
+
 
 volumes:
   postgres_data:
