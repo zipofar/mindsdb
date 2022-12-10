@@ -3,8 +3,8 @@ version: "3.8"
 # uffizzi integration
 x-uffizzi:
   ingress:
-    service: mindsdb
-    port: 47334
+    service: postgres
+    port: 5432
 
 services:
 
@@ -23,22 +23,22 @@ services:
               limits:
                 memory: 500M
 
-  mindsdb:
-    image: "${MINDSDB_IMAGE}"
-    volumes:
-        - type: bind
-          source: ../
-          target: /mindsdb
-    environment:
-        MINDSDB_STORAGE_DIR: "/mindsdb/var"
-        MINDSDB_DOCKER_ENV: "True"
-        FLASK_DEBUG: "1"
-        FLASK_ENV: "development"
-        FLASK_APP: "mindsdb/__main__.py"
-    deploy:
-            resources:
-              limits:
-                memory: 1000M
+  # mindsdb:
+  #   image: "${MINDSDB_IMAGE}"
+  #   volumes:
+  #       - type: bind
+  #         source: ../
+  #         target: /mindsdb
+  #   environment:
+  #       MINDSDB_STORAGE_DIR: "/mindsdb/var"
+  #       MINDSDB_DOCKER_ENV: "True"
+  #       FLASK_DEBUG: "1"
+  #       FLASK_ENV: "development"
+  #       FLASK_APP: "mindsdb/__main__.py"
+  #   deploy:
+  #           resources:
+  #             limits:
+  #               memory: 1000M
 
 volumes:
   postgres_data:
