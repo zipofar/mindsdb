@@ -8,33 +8,35 @@ x-uffizzi:
 
 services:
 
-  # postgres:
-  #  image: postgres
-  #  environment:
-  #    - POSTGRES_USER=postgres
-  #    - POSTGRES_PASSWORD=postgres
-  #    - POSTGRES_DB=iris
-  #    - PGDATA=/tmp
-  #  volumes:
-  #     - postgres_data:/var/lib/postgresql/data/
-  #     - ./uffizzi-db-script/:/docker-entrypoint-initdb.d/
-  #  deploy:
-  #           resources:
-  #             limits:
-  #               memory: 500M
+  postgres:
+   image: postgres
+   environment:
+     - POSTGRES_USER=postgres
+     - POSTGRES_PASSWORD=postgres
+     - POSTGRES_DB=iris
+     - PGDATA=/tmp
+   volumes:
+      - postgres_data:/var/lib/postgresql/data/
+      - ./uffizzi-db-script/:/docker-entrypoint-initdb.d/
+   deploy:
+            resources:
+              limits:
+                memory: 500M
 
   mindsdb:
     image: "${MINDSDB_IMAGE}"
+    volumes:
+      - .:/root
     # volumes:
     #     - type: bind
     #       source: ../
     #       target: /mindsdb
-    environment:
-        # MINDSDB_STORAGE_DIR: "/mindsdb/var"
-        MINDSDB_DOCKER_ENV: "True"
-        FLASK_DEBUG: "1"
-        FLASK_ENV: "development"
-        FLASK_APP: "./mindsdb/__main__.py"
+    # environment:
+    #     MINDSDB_STORAGE_DIR: "/mindsdb/var"
+    #     MINDSDB_DOCKER_ENV: "True"
+    #     FLASK_DEBUG: "1"
+    #     FLASK_ENV: "development"
+    #     FLASK_APP: "./mindsdb/__main__.py"
     deploy:
             resources:
               limits:
