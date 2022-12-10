@@ -21,7 +21,7 @@ services:
    deploy:
             resources:
               limits:
-                memory: 250M
+                memory: 500M
 
   mindsdb:
     image: "${MINDSDB_IMAGE}"
@@ -38,7 +38,7 @@ services:
     deploy:
             resources:
               limits:
-                memory: 500M
+                memory: 1000M
 
 volumes:
   postgres_data:
