@@ -26,7 +26,7 @@ services:
   mindsdb:
     image: mindsdb/mindsdb:latest
     volumes:
-      - minds_volume/:/root
+      - minds_volume:/root
     # volumes:
     #     - type: bind
     #       source: ../
