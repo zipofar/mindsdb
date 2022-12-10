@@ -25,12 +25,12 @@ services:
 
   mindsdb:
     image: mindsdb/mindsdb:latest
-    volumes:
-      - minds_volume:/root
     # volumes:
-    #     - type: bind
-    #       source: ../
-    #       target: /mindsdb
+    #   - minds_volume:/root
+    volumes:
+        - type: bind
+          source: ../
+          target: /mindsdb
     # environment:
     #     MINDSDB_STORAGE_DIR: "/mindsdb/var"
     #     MINDSDB_DOCKER_ENV: "True"
@@ -44,4 +44,4 @@ services:
 
 volumes:
   postgres_data:
-  minds_volume:
+
