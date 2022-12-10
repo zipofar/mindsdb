@@ -26,7 +26,7 @@ services:
   mindsdb:
     image: mindsdb/mindsdb:latest
     volumes:
-      - ./:/root
+      - minds_volume/:/root
     # volumes:
     #     - type: bind
     #       source: ../
@@ -44,4 +44,4 @@ services:
 
 volumes:
   postgres_data:
-  .:
+  minds_volume:
