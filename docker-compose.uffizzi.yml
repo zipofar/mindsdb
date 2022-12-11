@@ -27,12 +27,26 @@ services:
   mindsdb:
     image: mindsdb/mindsdb:latest
     container_name: mindsdb
+    volumes:
+        - type: bind
+          source: ../
+          target: /mindsdb
     restart: "always"
     ports:
       - "47334:47334"
       - "47335:47335"
-    volumes:
-      - ../:/root
+    command: bash -c "cd /mindsdb && python -m mindsdb"
+    environment:
+      MINDSDB_DOCKER_ENV: "True"
+      MINDSDB_STORAGE_DIR: "/mindsdb/var"
+      FLASK_DEBUG: "1"
+      FLASK_ENV: "development"
+      FLASK_APP: "/mindsdb/mindsdb/__main__.py"
+    healthcheck:
+      test:  ["CMD", "curl", "-f", "http://localhost:47334/api/util/ping"]
+      interval: 30s
+      timeout: 4s
+      retries: 100
     deploy:
             resources:
               limits:
