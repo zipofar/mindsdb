@@ -8,20 +8,20 @@ x-uffizzi:
 
 services:
 
-  # postgres:
-  #  image: postgres
-  #  environment:
-  #    - POSTGRES_USER=postgres
-  #    - POSTGRES_PASSWORD=postgres
-  #    - POSTGRES_DB=iris
-  #    - PGDATA=/tmp
-  #  volumes:
-  #     - postgres_data:/var/lib/postgresql/data/
-  #     - ./uffizzi-db-script/:/docker-entrypoint-initdb.d/
-  #  deploy:
-  #           resources:
-  #             limits:
-  #               memory: 500M
+  postgres:
+   image: postgres
+   environment:
+     - POSTGRES_USER=postgres
+     - POSTGRES_PASSWORD=postgres
+     - POSTGRES_DB=iris
+     - PGDATA=/tmp
+   volumes:
+      - postgres_data:/var/lib/postgresql/data/
+      - ./uffizzi-db-script/:/docker-entrypoint-initdb.d/
+   deploy:
+            resources:
+              limits:
+                memory: 500M
 
 
   mindsdb:
@@ -35,7 +35,7 @@ services:
     ports:
       - "47334:47334"
       - "47335:47335"
-    command: bash -c "cd /mindsdb && python -m mindsdb"
+    # command: bash -c "cd /mindsdb && python -m mindsdb"
     environment:
       MINDSDB_DOCKER_ENV: "True"
       MINDSDB_STORAGE_DIR: "/mindsdb/var"
