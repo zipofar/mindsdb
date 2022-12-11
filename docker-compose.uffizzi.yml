@@ -50,7 +50,7 @@ services:
     deploy:
             resources:
               limits:
-                memory: 1000M
+                memory: 8000M
 
   # mindsdb:
   #   image: mindsdb/mindsdb:latest
