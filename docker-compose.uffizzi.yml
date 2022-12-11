@@ -8,20 +8,20 @@ x-uffizzi:
 
 services:
 
-  postgres:
-   image: postgres
-   environment:
-     - POSTGRES_USER=postgres
-     - POSTGRES_PASSWORD=postgres
-     - POSTGRES_DB=iris
-     - PGDATA=/tmp
-   volumes:
-      - postgres_data:/var/lib/postgresql/data/
-      - ./uffizzi-db-script/:/docker-entrypoint-initdb.d/
-   deploy:
-            resources:
-              limits:
-                memory: 500M
+  # postgres:
+  #  image: postgres
+  #  environment:
+  #    - POSTGRES_USER=postgres
+  #    - POSTGRES_PASSWORD=postgres
+  #    - POSTGRES_DB=iris
+  #    - PGDATA=/tmp
+  #  volumes:
+  #     - postgres_data:/var/lib/postgresql/data/
+  #     - ./uffizzi-db-script/:/docker-entrypoint-initdb.d/
+  #  deploy:
+  #           resources:
+  #             limits:
+  #               memory: 500M
 
 
   mindsdb:
@@ -50,12 +50,7 @@ services:
     deploy:
             resources:
               limits:
-                memory: 2000M
-
-networks:
-  default:
-    name: mindsdb-network
-    driver: bridge
+                memory: 4000M
 
   # mindsdb:
   #   image: mindsdb/mindsdb:latest
