@@ -34,7 +34,7 @@ services:
     restart: "always"
     ports:
       - "47334:47334"
-      - "47335:47335"
+      # - "47335:47335"
     # command: bash -c "cd /mindsdb && python -m mindsdb"
     environment:
       MINDSDB_DOCKER_ENV: "True"
