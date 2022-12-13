@@ -68,6 +68,6 @@ services:
     #     FLASK_APP: "./mindsdb/__main__.py"
 
 
-#volumes:
-  #postgres_data:
+volumes:
+  postgres_data:
 
