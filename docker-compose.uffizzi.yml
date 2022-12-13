@@ -15,9 +15,9 @@ services:
      - POSTGRES_PASSWORD=postgres
      - POSTGRES_DB=iris
      - PGDATA=/tmp
-   volumes:
-      - postgres_data:/var/lib/postgresql/data/
-      - ./uffizzi-db-script/:/docker-entrypoint-initdb.d/
+   #volumes:
+      #- postgres_data:/var/lib/postgresql/data/
+      #- ./uffizzi-db-script/:/docker-entrypoint-initdb.d/
    deploy:
             resources:
               limits:
@@ -26,12 +26,12 @@ services:
 
   mindsdb:
     image: mindsdb/mindsdb:latest
-    container_name: mindsdb
-    volumes:
-        - type: bind
-          source: ../
-          target: /mindsdb
-    restart: "always"
+    #container_name: mindsdb
+    #volumes:
+       # - type: bind
+       #   source: ../
+       #   target: /mindsdb
+    #restart: "always"
     ports:
       - "47334:47334"
       # - "47335:47335"
@@ -68,6 +68,6 @@ services:
     #     FLASK_APP: "./mindsdb/__main__.py"
 
 
-volumes:
-  postgres_data:
+#volumes:
+  #postgres_data:
 
