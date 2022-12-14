@@ -64,7 +64,7 @@ Also, check-out the [rewards and community programs.](https://mindsdb.com/commun
 
 You can try the Mindsdb ML SQL server here [(demo)](https://cloud.mindsdb.com).
 
-## Installation
+## Installation1
 
 To install the latest version of MindsDB please pull the following Docker image:
 
