@@ -29,8 +29,8 @@ services:
     #container_name: mindsdb
     #volumes:
        # - type: bind
-         #- source: ./
-          #target: /mindsdb
+         - source: ./
+           target: /mindsdb
     #restart: "always"
     ports:
       - "47334:47334"
