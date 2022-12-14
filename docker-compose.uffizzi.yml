@@ -27,7 +27,7 @@ services:
   mindsdb:
     image: mindsdb/mindsdb:latest
     #container_name: mindsdb
-    #volumes:
+    volumes:
        # - type: bind
          - source: ./
            target: /mindsdb
